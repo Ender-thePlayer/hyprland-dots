@@ -4,6 +4,6 @@ waybar &
 
 hyprctl reload
 
-killall hyprpaper
+killall swaybg
 
-hyprpaper
+swaybg -i "$HOME/.config/hypr/walls/2.png"
