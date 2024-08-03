@@ -2,7 +2,7 @@
   border: none;
   border-radius: 0;
   min-height: 0;
-  font-family: CaskaydiaCove Nerd font;
+  font-family: Inter font;
   font-weight: bold;
   font-size: 14px;
   padding: 0;
@@ -34,7 +34,9 @@ window#waybar {
 #workspaces button.urgent {
   background-color: #e78a4e;
 }
-
+#custom-weather {
+	margin: 0 5px 0 0;
+}
 #battery,
 #backlight,
 #network,
@@ -64,7 +66,7 @@ window#waybar {
     color: #d4be98;
 }
 
-tooltip {
+#tooltip {
   padding: 15px;
   background-color: #1d2021;
   border-radius: 6px;

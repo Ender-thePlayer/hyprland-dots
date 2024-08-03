@@ -12,7 +12,7 @@
     
     "modules-center": [
         "clock",
-        "custom/spotify"
+        "custom/weather"
     ],
 
     "modules-right": [
@@ -26,8 +26,20 @@
     ],
 
     "hyprland/workspaces": {
-        "disable-scroll": true,
-        "all-outputs": true
+        "disable-scroll": false,
+        "all-outputs": true,
+        "on-scroll-down": "hyprctl dispatch workspace r-1",
+        "on-scroll-up": "~/.config/hypr/workspace_switch.sh",
+	"scroll-step": 1,
+        "smooth-scrolling-threshold": 5
+    },
+
+    "custom/weather": {
+    	"format": "{}°",
+    	"tooltip": true,
+    	"interval": 1200,
+    	"exec": "wttrbar --location 'Macin'",
+    	"return-type": "json"
     },
 
     "custom/spotify": {
@@ -59,14 +71,36 @@
     },
 
     "clock": {
-        "format": "{:%H:%M - %a, %d %b %Y}"
+        "format": "{:%H:%M - %a, %d %b %Y}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+                    "mode"          : "year",
+                    "mode-mon-col"  : 3,
+                    "weeks-pos"     : "right",
+                    "on-scroll"     : 1,
+                    "on-click-right": "mode",
+                    "format": {
+                              "months":     "<span color='#ffead3'><b>{}</b></span>",
+                              "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                              "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+                              "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                              "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+                              }
+                    },
+        "actions":  {
+                    "on-click-right": "mode",
+                    "on-click-forward": "tz_up",
+                    "on-click-backward": "tz_down",
+                    "on-scroll-up": "shift_up",
+                    "on-scroll-down": "shift_down"
+                    }
     },
 
     "pulseaudio": {
         "scroll-step": 5,
         "max-volume": 150,
-        "format": "VOL {volume}%",
-        "format-bluetooth": "BT {volume}%",
+        "format": "VOL {volume:3}%",
+        "format-bluetooth": "BT {volume:3}%",
         "nospacing": 1,
         "format-muted": "MUT",
         "on-click": "pavucontrol"
@@ -75,6 +109,7 @@
     "battery": {
         "format": "{capacity}%",
         "interval": 5,
+    	"weighted-average": true,
         "states": {
             "warning": 15,
             "critical": 5
@@ -84,13 +119,13 @@
 
     "temperature": {
         "format": "{temperatureC}°C",
-	"hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
-        "interval": 10
+        "interval": 1,
+	"tooltip": false
     },
 
     "custom/fan_speed": {
         "exec": "$HOME/.config/waybar/fan_speed.sh",
-        "interval": 10,
+        "interval": 1,
         "format": "{} RPM   ",
 	"tooltip": false
     },
@@ -102,4 +137,4 @@
         "on-click": "wlogout -b 2 --protocol layer-shell"
     }
 
-}i
+}
