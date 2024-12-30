@@ -2,11 +2,11 @@
 
 These are my dotfiles for hyprland, waybar, fish and more!
 
-**NOTE:** This script is for archlinux and it assumes you already have hyprland and a display manager installed. 
-Also this will install paru AUR helper.
+**NOTE:** This script is for archlinux and it assumes you already have Hyprland and SDDM installed. 
 
-![Preview](./Previews/2024-05-25-162844_hyprshot.png)
-![Preview](./Previews/2024-05-25-162918_hyprshot.png)
-![Preview](./Previews/2024-05-25-162936_hyprshot.png)
-![Preview](./Previews/2024-05-25-163031_hyprshot.png)
-![Preview](./Previews/2024-05-25-163152_hyprshot.png)
+![Preview](./Previews/1.png)
+![Preview](./Previews/2.png)
+![Preview](./Previews/3.png)
+![Preview](./Previews/4.png)
+![Preview](./Previews/5.png)
+![Preview](./Previews/6.png)
