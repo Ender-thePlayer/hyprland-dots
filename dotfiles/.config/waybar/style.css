@@ -1,75 +1,142 @@
+@import "macchiato.css";
+
 * {
-  border: none;
-  border-radius: 0;
-  min-height: 0;
-  font-family: Inter font;
-  font-weight: bold;
-  font-size: 14px;
   padding: 0;
+  font-family: "JetBrainsMono Nerd Font", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 13px;
 }
 
 window#waybar {
-  background: rgb(29, 32, 33);
-  border-radius: 0px;
-  border: 2px solid rgba(29, 32, 33, 0.5);
+  background: rgba(35, 35, 35,0.8);
+  border-radius: 0;
+  transition-property: background-color;
+  transition-duration: 0.5s;
 }
 
-#workspaces {
-  background-color: transparent;
+#window {
+  color: @text;
 }
 
-#workspaces button {
-  all: initial;
-  min-width: 0;
-  box-shadow: inset 0 -3px transparent;
-  margin: 8px 0px;
-  margin-left: 12px;
-  color: #7c6f64;
+.modules-center {
+  border-radius: 15px;
 }
 
-#workspaces button.focused {
-  color: #d4be98;
+.modules-right {
+  padding: 0 5px;
 }
 
-#workspaces button.urgent {
-  background-color: #e78a4e;
+.modules-center {
+  padding: 0 10px;
 }
-#custom-weather {
-	margin: 0 5px 0 0;
+
+.modules-left {
+  padding: 0 20px 0 10px;
 }
-#battery,
-#backlight,
-#network,
+
+
+#workspaces button,
 #clock,
 #tray,
+#battery,
 #temperature,
-#pulseaudio {
-  margin: 4px 0px;
-  margin-right: 12px;
-  background-color: transparent;
-  color: #d4be98;
+#cpu,
+#pulseaudio,
+#bluetooth {
+  padding: 0 5px;
 }
 
-#battery.warning,
-#battery.critical,
-#battery.urgent {
-  color: #e78a4e;
+#custom-logo {
+  color: @red;
+  padding: 0 13px 0 11px;
+}
+#custom-logo:hover {
+  background-color: @surface2;
+}
+
+
+#workspaces {
+	margin: 0 0 0 15px;
+}
+#workspaces button {
+  background-color: transparent;
+  color: @mauve;
+  box-shadow: inset 0 -3px transparent;
+}
+#workspaces button.active {
+  background-color: transparent;
+  color: @rosewater;
+}
+#workspaces button:hover {
+  background: rgba(0, 0, 0, 0.2);
+  text-shadow: 0px 0px 3px @mauve;
+}
+#workspaces button.focused {
+  background-color: @lavender;
+  box-shadow: inset 0 -3px #ffffff;
+}
+#workspaces button.urgent {
+  box-shadow: inset 0 -3px @maroon;
+}
+
+
+#clock {
+  color: @flamingo;
+}
+
+#custom-weather {
+	margin: 0 0 0 10px;
+  color: @flamingo;
+}
+
+
+@keyframes blink {
+  to {
+    color: #8e8e8e;
+  }
+}
+#battery {
+  color: @green;
+}
+#battery.charging,
+#battery.plugged {
+  color: @sapphire;
+}
+#battery.warning:not(.charging) {
+  color: orange;
+  animation-name: blink;
+  animation-duration: 1s;
+  animation-timing-function: steps(24);
+  animation-iteration-count: infinite;
   animation-direction: alternate;
-  background-color: transparent;
 }
-#battery.charging {
-  color: #a9b665;
-  background-color: transparent;
+#battery.critical:not(.charging) {
+  background-color: #f53c3c;
+  color: #ffffff;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: steps(24);
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
-#custom-fan_speed {
-    color: #d4be98;
+#hardware {
+  color: @sky;
+} 
+#cpu,
+#temperature {
+  color: @sky;
 }
 
-#tooltip {
-  padding: 15px;
-  background-color: #1d2021;
-  border-radius: 6px;
-  color: #d4be98;
-  border: 2px solid #282828;
+#pulseaudio {
+  color: @mauve;
+}
+#pulseaudio:hover {
+  background-color: @surface2;
+}
+
+#bluetooth {
+  color: @peach;
+}
+#bluetooth:hover {
+  background-color: @surface2;
 }
