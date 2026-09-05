@@ -1,5 +1,5 @@
 configuration{
-    modi: "drun,run,filebrowser";
+    modi: "drun";
     lines: 6;
     font: "JetBrainsMono Nerd Font 14";
     show-icons: true;
@@ -9,14 +9,8 @@ configuration{
     location: 0;
     disable-history: false;
     hide-scrollbar: true;
-    display-drun: "    Apps ";
-    display-run: "    Run ";
-    display-emoji: "󰞅  Emoji";
-    display-filebrowser: "  Files";
-    display-window: " 﩯  window";
-    display-Network: " 󰤨  Network";
-    sidebar-mode: true;
 }
+
 
 @theme "catppuccin"
 
@@ -27,7 +21,8 @@ element-text, element-icon , mode-switcher {
 
 window {
     height: 360px;
-    border: 3px;
+    width: 600px;
+    border: 2px;
     border-color: @border-col;
     background-color: @bg-col;
 }
@@ -66,8 +61,8 @@ entry {
 }
 
 listview {
-    border: 0px 0px 0px;
-    padding: 6px 0px 0px;
+    border: 0px;
+    padding: 6px 20px 0px 0px;
     margin: 10px 0px 0px 20px;
     columns: 2;
     background-color: @bg-col;
@@ -86,21 +81,4 @@ element-icon {
 element selected {
     background-color:  @selected-col ;
     text-color: @fg-col2  ;
-}
-
-mode-switcher {
-    spacing: 0;
-  }
-
-button {
-    padding: 10px;
-    background-color: @bg-col-light;
-    text-color: @grey;
-    vertical-align: 0.5; 
-    horizontal-align: 0.5;
-}
-
-button selected {
-  background-color: @bg-col;
-  text-color: @blue;
 }

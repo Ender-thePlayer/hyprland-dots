@@ -1,4 +1,11 @@
+### CREATED ON: 25.07.2024
+### Clipboard manager that uses rofi as a frontend and
+### cliphist as a backend
 
+# Usage: "clipboard.sh" brings up rofi
+
+
+#!/usr/bin/env bash
 while true; do
     result=$(
         rofi -dmenu \
@@ -8,23 +15,22 @@ while true; do
             < <(cliphist list)
     )
 
-    case "$?" in
-        1)
-            exit
-            ;;
+    rofi_exit_code=$?
+
+    case $rofi_exit_code in
         0)
-            case "$result" in
-                "")
-                    continue
-                    ;;
-                *)
-                    cliphist decode <<<"$result" | wl-copy
-                    exit
-                    ;;
-            esac
+            if [[ -n "$result" ]]; then
+                cliphist decode <<<"$result" | wl-copy
+            fi
+            exit 0
+            ;;
+        1)
+            exit 0
             ;;
         10)
-            cliphist delete <<<"$result"
+            if [[ -n "$result" ]]; then
+                cliphist delete <<<"$result"
+            fi
             ;;
         11)
             cliphist wipe
